@@ -11,12 +11,15 @@ export default class ProjectsComponent extends React.Component {
       projects: null
     }
   }
-  componentDidMount() {
-    fetch('https://api.github.com/users/mohan-cao/repos')
-    .then(x => x.json())
-    .then(x => this.setState({
-      projects: x.filter(only => !only.fork).sort((a, b) => b["stargazers_count"] - a["stargazers_count"])
-    }))
+  async componentDidMount() {
+    let reposList = await (await fetch('https://api.github.com/users/mohan-cao/repos?type=all')).json()
+    const orgForUser = await (await fetch('https://api.github.com/users/mohan-cao/orgs')).json()
+    for (let i=0; i<orgForUser.length; i++) {
+      reposList.push(...await (await fetch(orgForUser[i]['repos_url'])).json())
+    }
+    this.setState({
+      projects: reposList.filter(only => !only.fork).sort((a, b) => b["stargazers_count"] - a["stargazers_count"])
+    })
   }
   render() {
     let { projects } = this.state
