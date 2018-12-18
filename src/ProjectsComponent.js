@@ -30,7 +30,7 @@ export default class ProjectsComponent extends React.Component {
         { projects.map((proj) => 
           <div key={proj.id} className="even-columns">
             <div className="even-columns-child" style={{ overflow: 'hidden', position: 'relative', textAlign: 'center' }}>
-              {(proj.homepage) ? <img alt="Repository homepage background screenshot" className="bg-image" src={`//image.thum.io/get/${proj.homepage}`} /> : ''}
+              <img alt="Repository homepage background screenshot" className="bg-image" src={`//image.thum.io/get/${(proj.homepage) ? proj.homepage : proj['html_url']}`} />
               <div className="translucent-bg">
                 <h3 style={{ textTransform: 'none' }}>{proj.name.replace(/-/g, ' ').replace(/(^|\s)\S/g, l => l.toUpperCase())}</h3>
                 <p><em>{(proj.description) ? proj.description[0].toUpperCase()+proj.description.slice(1) : 'No description available. Most likely a university project or something random.'}</em></p>
