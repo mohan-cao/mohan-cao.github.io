@@ -47,6 +47,9 @@
   section {
     padding: 20px 25px;
     border-bottom: 1px solid #ddd;
+    &:last-of-type {
+      border-bottom: none;
+    }
   }
 
   .two-columns {
@@ -61,9 +64,6 @@
     }
     &:last-child {
       flex: 1;
-    }
-    section:last-of-type {
-      border-bottom: none;
     }
   }
 
