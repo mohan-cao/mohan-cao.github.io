@@ -1,3 +1,5 @@
+@import 'responsive.scss';
+
 .App {
   height: 100%;
   background: #f5f8f8;
@@ -11,6 +13,7 @@
   $amount: 20;
   $opacity: 0.4;
   span.bokeh-dot {
+    @include respond-to(smallDesktop) { display: none; animation: none !important; }
     width: $particleSize;
     height: $particleSize;
     border-radius: $particleSize;
