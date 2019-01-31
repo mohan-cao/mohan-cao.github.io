@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './ImageLoader.scss';
 
 class ImageLoader extends Component {
 

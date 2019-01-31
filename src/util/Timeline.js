@@ -20,7 +20,6 @@ export default ({ title, list, condensed = false }) => {
   return (<section>
     <h2>{title}</h2>
     <div className={`timeline${(condensed) ? ' condensed' : ''}`}>
-
       <TimelineItems items={list} />
     </div>
   </section>);

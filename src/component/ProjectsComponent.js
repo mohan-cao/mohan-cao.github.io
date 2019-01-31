@@ -14,7 +14,7 @@ function GitHubProjectsComponent(proj) {
         <ImageLoader
           alt={"background screenshot for project " + proj.name}
           className="bg"
-          src={`https://image.thum.io/get/${proj.homepage}`}
+          src={(proj.homepage)?`https://image.thum.io/get/${proj.homepage}`:''}
         />
         <div className="translucent-bg">
           <h3 style={{ textTransform: 'none' }}>{proj.name.replace(/-/g, ' ').replace(/(^|\s)\S/g, l => l.toUpperCase())}</h3>
