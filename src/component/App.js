@@ -5,6 +5,12 @@ import './App.scss';
 
 const numBokehDots = 20
 
+export async function fetchNewProfile() {
+  let resp = await fetch("https://gist.githubusercontent.com/mohan-cao/4ca5114fb02a31bcfb9c6c5b0d31d8fe/raw/profile.json");
+  let json = await resp.json();
+  return json;
+}
+
 class App extends Component {
   constructor() {
     super();
@@ -13,9 +19,10 @@ class App extends Component {
     }
   }
   componentDidMount() {
-    fetch("https://gist.githubusercontent.com/mohan-cao/4ca5114fb02a31bcfb9c6c5b0d31d8fe/raw/profile.json")
-    .then(x => x.json())
-    .then(x => this.setState({ json: x }));
+    fetchNewProfile().then(x => !this.isCancelled && this.setState({ json: x }));
+  }
+  componentWillUnmount() {
+    this.isCancelled = true;
   }
   render() {
     return (

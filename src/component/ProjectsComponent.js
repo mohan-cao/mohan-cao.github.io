@@ -8,6 +8,15 @@ import './ProjectsComponent.scss';
 
 const DEFAULT_PROJ_DESC = 'No description available. Most likely a university project or something random.';
 
+export async function fetchProjects() {
+  let reposList = await (await fetch('https://api.github.com/users/mohan-cao/repos?type=all')).json()
+    const orgForUser = await (await fetch('https://api.github.com/users/mohan-cao/orgs')).json()
+    for (let i=0; i<orgForUser.length; i++) {
+      reposList.push(...await (await fetch(orgForUser[i]['repos_url'])).json())
+    }
+    return reposList.filter(only => !only.fork).sort((a, b) => b["stargazers_count"] - a["stargazers_count"])
+}
+
 function GitHubProjectsComponent(proj) {
   return (
     <div className="ProjectsComponent even-columns" key={proj.id}>
@@ -46,15 +55,13 @@ export default class ProjectsComponent extends React.Component {
       projects: null
     }
   }
-  async componentDidMount() {
-    let reposList = await (await fetch('https://api.github.com/users/mohan-cao/repos?type=all')).json()
-    const orgForUser = await (await fetch('https://api.github.com/users/mohan-cao/orgs')).json()
-    for (let i=0; i<orgForUser.length; i++) {
-      reposList.push(...await (await fetch(orgForUser[i]['repos_url'])).json())
-    }
-    this.setState({
-      projects: reposList.filter(only => !only.fork).sort((a, b) => b["stargazers_count"] - a["stargazers_count"])
-    })
+  componentDidMount() {
+    fetchProjects().then(x => !this.isCancelled && this.setState({
+      projects: x
+    }))
+  }
+  componentWillUnmount() {
+    this.isCancelled = true;
   }
   render() {
     let { projects } = this.state
