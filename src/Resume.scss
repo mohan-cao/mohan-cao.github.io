@@ -140,13 +140,22 @@
     .even-columns-child {
       flex: 1;
       padding: 10px 15px;
-      img.bg-image {
+      img.bg {
         z-index: -1;
         display: block;
         width: 100%;
         position: absolute;
         top: -5px;
         bottom: 2.5px;
+        left: 0;
+      }
+      div.bg {
+        z-index: -1;
+        display: block;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        bottom: 0;
         left: 0;
       }
       .translucent-bg {
