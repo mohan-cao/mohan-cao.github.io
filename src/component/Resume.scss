@@ -2,6 +2,8 @@
 @import "../responsive.scss";
 
 .Resume {
+  min-width: 504px;
+
   h1 {
     text-align: center;
     text-transform: uppercase;
@@ -46,9 +48,9 @@
   }
 
   section {
-    padding: 20px 25px;
+    padding: 20px 18px;
     border-bottom: 1px solid #ddd;
-    &:last-of-type {
+    &:last-child {
       border-bottom: none;
     }
   }

@@ -19,7 +19,7 @@ export async function fetchProjects() {
 
 function GitHubProjectsComponent(proj) {
   return (
-    <div className="ProjectsComponent even-columns" key={proj.id}>
+    <div className="even-columns" key={proj.id}>
       <div className="even-columns-child" style={{ overflow: 'hidden', position: 'relative', textAlign: 'center' }}>
         <ImageLoader
           alt={"background screenshot for project " + proj.name}
@@ -67,13 +67,14 @@ export default class ProjectsComponent extends React.Component {
     let { projects } = this.state
     if (!projects) projects = []
     return (
-      <section>
-        <h2>GitHub Projects</h2>
-        { projects.map((proj) => 
-          GitHubProjectsComponent(proj)
-        )}
-        
-      </section>
+      <div className="ProjectsComponent">
+        <section>
+          <h2>GitHub Projects</h2>
+          { projects.map((proj) => 
+            GitHubProjectsComponent(proj)
+          )}
+        </section>
+      </div>
     )
   }
 }
