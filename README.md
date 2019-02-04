@@ -1,6 +1,8 @@
 # Mohan's Profile Page
 
-Wow it's shiny and flavourful, but also very subdued in a sophisticated way, which does not represent me at all.
+[![Build Status](https://travis-ci.org/mohan-cao/mohan-cao.github.io.svg?branch=dev)](https://travis-ci.org/mohan-cao/mohan-cao.github.io)
+
+Simple template on top of an annoyingly easy-to-code but hard-to-keep-clean codebase. Should be extendable to nearly all my web projects except for the ones that use Router.
 
 ## Fun features
 
