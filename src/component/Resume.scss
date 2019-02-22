@@ -2,8 +2,6 @@
 @import "../responsive.scss";
 
 .Resume {
-  min-width: 504px;
-
   h1 {
     text-align: center;
     text-transform: uppercase;
@@ -32,6 +30,7 @@
       font-weight: 400;
       text-transform: none;
       float: right;
+      @include respond-to(handhelds) { display: block; float: none; }
     }
   }
 
