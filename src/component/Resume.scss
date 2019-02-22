@@ -57,8 +57,14 @@
   .two-columns {
     display: flex;
     flex-direction: row;
-    @media only screen and (max-width: 800px) { flex-direction: column; }
     border-bottom: 1px solid #ddd;
+    @media only screen and (max-width: 800px) {
+      flex-direction: column;
+      border-bottom: none;
+      section {
+        border-bottom: 1px solid #ddd;
+      }
+    }
   }
 
   .two-columns .column {
