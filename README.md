@@ -1,6 +1,6 @@
 # Mohan's Profile Page
 
-[![Build Status](https://travis-ci.org/mohan-cao/mohan-cao.github.io.svg?branch=dev)](https://travis-ci.org/mohan-cao/mohan-cao.github.io)
+[![Build Status](https://travis-ci.org/mohan-cao/mohan-cao.github.io.svg?branch=dev)](https://travis-ci.org/mohan-cao/mohan-cao.github.io) [![Greenkeeper badge](https://badges.greenkeeper.io/mohan-cao/mohan-cao.github.io.svg)](https://greenkeeper.io/)
 
 Simple template on top of an annoyingly easy-to-code but hard-to-keep-clean codebase. Should be extendable to nearly all my web projects except for the ones that use Router.
 
