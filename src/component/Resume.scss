@@ -184,15 +184,15 @@
     margin: 5px auto;
     border: 1.5px solid #000;
     border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     + p {
       margin: 10px 0 -10px;
     }
     img {
       width: 60%;
       margin: 15px 0 0;
-    }
-    svg {
-      height: 100%
     }
   }
 

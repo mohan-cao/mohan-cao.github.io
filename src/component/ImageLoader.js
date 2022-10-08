@@ -1,22 +1,22 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 class ImageLoader extends Component {
 
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       image: ''
     }
   }
 
   componentDidMount() {
-    const hdLoaderImg = new Image();
-    hdLoaderImg.src = this.props.src;
-    hdLoaderImg.onload = () => this.setState({ image: this.props.src });
-  };
+    const hdLoaderImg = new Image()
+    hdLoaderImg.src = this.props.src
+    hdLoaderImg.onload = () => this.setState({ image: this.props.src })
+  }
 
   render() {
-    if (this.state.image) return <img alt={this.props.alt} className={this.props.className} style={this.props.style} src={this.state.image} />;
+    if (this.state.image) return <img alt={this.props.alt} className={this.props.className} style={this.props.style} src={this.state.image} />
     return (
       <div
         className={this.props.className}
@@ -34,4 +34,4 @@ ImageLoader.defaultProps = {
   style: {}
 }
 
-export default ImageLoader;
+export default ImageLoader

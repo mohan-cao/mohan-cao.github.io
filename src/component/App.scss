@@ -9,7 +9,7 @@
   align-items: center;
   overflow: hidden;
   $particleSize: 20em;
-  $animationDuration: 6s;
+  $animationDuration: 6;
   $amount: 20;
   $opacity: 0.4;
   span.bokeh-dot {
@@ -39,8 +39,8 @@
         top: random(100) * 1%;
         left: random(100) * 1%;
         opacity: $opacity;
-        animation-duration: (random($animationDuration * 10) / 10) * 1s + 10s;
-        animation-delay: random(($animationDuration + 10s) * 10) / 10 * -1s;
+        animation-duration: calc(random($animationDuration * 10) / 10) * 1s + 10s;
+        animation-delay: calc(random(($animationDuration + 10) * 10) / 10) * -1s;
         transform-origin: (random(50) - 25) * 1vw (random(50) - 25) * 1vh;
         $blurRadius: (random() + 0.5) * $particleSize * 0.5;
         $x: if(random() > 0.5, -1, 1);
